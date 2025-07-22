@@ -23,7 +23,61 @@ A web-based inventory management system built to streamline warehouse operations
 
 ---
 
-## 📦 Prerequisites
+## Contributing
+To contribute, please follow the steps below to ensure a smooth and successful submission
+
+1. **Fork the Repository**
+Create a personal copy of the repository:
+- Click the "Fork" button in the top-right corner of the repository on GitHub
+- This will create a copy under your own GitHub account
+
+2. **Clone Your Forker**
+Clone the forked repository to your local machine:
+    ```bash
+    git clone https://github.com/your-username/your-forked-repo.github
+    cd your-forked-repo
+    ```
+
+3. **Create a New Branch**
+Create a new branch to isolate your changes. Use a descriptive branch name:
+    ```bash
+    git checkout -b feature/short-description
+    ```
+> **Tip:** Avoid making changes on the main branch
+
+4. **Make Your Changes**
+- Make your edits or additions to the codebase
+- Ensure your code is **formatted properly** and follows standard style guides
+- **Write test**, if applicable, for any new functionality
+- Verify everything works correctly before commiting
+
+5. **Commit Your Changes**
+Use clear, descriptive commit messages
+    ```bash
+    git add .
+    git commit -m "Add: implemented feature XYZ"
+    ```
+6. **Push to Your Fork**
+Push changes to your forked repository:
+    ```bash
+    git push origin feature/short-description
+    ```
+
+7. **Open a Pull Request (PR)**
+- Go to the original repository on GitHub
+- Click "Compare & Pull Request" next to your recently pushed branch
+- Provide a clear **title** and **description** explaining:
+    - What the change does
+    - Any relevant issue numbers (e.g., API #123)
+- Submit the pull request for review
+
+8. **Respond to Review Feedback**
+- Be responsive to any comments or change requests from the maintainers
+- Push follow-up commits to the same branch; the PR will update automatically
+
+---
+
+## Prerequisites
 
 - **Java** 17 or higher  
 - **Gradle** (Wrapper included)  
@@ -31,7 +85,7 @@ A web-based inventory management system built to streamline warehouse operations
 
 ---
 
-## ⚙️ Installation
+## Installation
 
 1. **Clone the Repository**
    ```bash
