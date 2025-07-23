@@ -28,7 +28,7 @@ CREATE TABLE Item (
                       ID integer  NOT NULL,
                       Name varchar(20)  NOT NULL,
                       Description varchar(200)  NOT NULL,
-                      Cost double(10,3)  NOT NULL,
+                      Price double(10,3)  NOT NULL,
                       Quantity integer  NOT NULL,
                       CONSTRAINT Item_pk PRIMARY KEY (ID)
 );

@@ -24,7 +24,7 @@ INSERT INTO Employee_Job (Employee_ID, Job_ID) VALUES
                                                    (4, 1);
 
 -- Items
-INSERT INTO Item (ID, Name, Description, Cost, Quantity) VALUES
+INSERT INTO Item (ID, Name, Description, Price, Quantity) VALUES
                                                              (1, 'Laptop', 'Gaming laptop with 16GB RAM', 1200.500, 5),
                                                              (2, 'Mouse', 'Wireless ergonomic mouse', 25.999, 20),
                                                              (3, 'Keyboard', 'Mechanical RGB keyboard', 75.250, 10),
