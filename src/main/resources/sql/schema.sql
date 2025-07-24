@@ -23,12 +23,19 @@ CREATE TABLE Employee_Job (
                               CONSTRAINT Employee_Job_pk PRIMARY KEY (Employee_ID,Job_ID)
 );
 
+-- Table: Employee_Login_Audit
+CREATE TABLE Employee_Login_Audit (
+                                      Login_Audit_ID integer  NOT NULL,
+                                      Employee_ID integer  NOT NULL,
+                                      CONSTRAINT Employee_Login_Audit_pk PRIMARY KEY (Login_Audit_ID,Employee_ID)
+);
+
 -- Table: Item
 CREATE TABLE Item (
                       ID integer  NOT NULL,
                       Name varchar(20)  NOT NULL,
                       Description varchar(200)  NOT NULL,
-                      Price double(10,3)  NOT NULL,
+                      Cost double(10,3)  NOT NULL,
                       Quantity integer  NOT NULL,
                       CONSTRAINT Item_pk PRIMARY KEY (ID)
 );
@@ -48,6 +55,16 @@ CREATE TABLE Job (
                      CONSTRAINT Job_pk PRIMARY KEY (ID)
 );
 
+-- Table: Login_Audit
+CREATE TABLE Login_Audit (
+                             ID integer  NOT NULL,
+                             Username varchar(20)  NOT NULL,
+                             IP_Address varchar(20)  NOT NULL,
+                             Login_Time timestamp  NOT NULL,
+                             Success_Failure bool  NOT NULL,
+                             CONSTRAINT Login_Audit_pk PRIMARY KEY (ID)
+);
+
 -- Table: Sale
 CREATE TABLE Sale (
                       ID integer  NOT NULL,
@@ -59,7 +76,7 @@ CREATE TABLE Sale (
 -- Table: Warehouse
 CREATE TABLE Warehouse (
                            ID integer  NOT NULL,
-                           Address varchar(200)  NOT NULL,
+                           Adress varchar(200)  NOT NULL,
                            CONSTRAINT Warehouse_pk PRIMARY KEY (ID)
 );
 
@@ -82,6 +99,14 @@ ALTER TABLE Employee_Job ADD CONSTRAINT Employee_Job_Employee FOREIGN KEY Employ
 -- Reference: Employee_Job_Job (table: Employee_Job)
 ALTER TABLE Employee_Job ADD CONSTRAINT Employee_Job_Job FOREIGN KEY Employee_Job_Job (Job_ID)
     REFERENCES Job (ID);
+
+-- Reference: Employee_Login_Audit_Employee (table: Employee_Login_Audit)
+ALTER TABLE Employee_Login_Audit ADD CONSTRAINT Employee_Login_Audit_Employee FOREIGN KEY Employee_Login_Audit_Employee (Employee_ID)
+    REFERENCES Employee (ID);
+
+-- Reference: Employee_Login_Audit_Login_Audit (table: Employee_Login_Audit)
+ALTER TABLE Employee_Login_Audit ADD CONSTRAINT Employee_Login_Audit_Login_Audit FOREIGN KEY Employee_Login_Audit_Login_Audit (Login_Audit_ID)
+    REFERENCES Login_Audit (ID);
 
 -- Reference: Employee_Warehouse (table: Employee)
 ALTER TABLE Employee ADD CONSTRAINT Employee_Warehouse FOREIGN KEY Employee_Warehouse (Warehouse_ID)
@@ -106,4 +131,3 @@ ALTER TABLE Warehouse_Items ADD CONSTRAINT Table_9_Item FOREIGN KEY Table_9_Item
 -- Reference: Table_9_Warehouse (table: Warehouse_Items)
 ALTER TABLE Warehouse_Items ADD CONSTRAINT Table_9_Warehouse FOREIGN KEY Table_9_Warehouse (Warehouse_ID)
     REFERENCES Warehouse (ID);
-
