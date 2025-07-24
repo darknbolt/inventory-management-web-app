@@ -1,5 +1,5 @@
 -- Warehouses
-INSERT INTO Warehouse (ID, Adress) VALUES
+INSERT INTO Warehouse (ID, Address) VALUES
                                        (1, '123 Main St, Berlin'),
                                        (2, '456 Market Ave, Munich');
 

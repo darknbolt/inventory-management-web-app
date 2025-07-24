@@ -59,7 +59,7 @@ CREATE TABLE Sale (
 -- Table: Warehouse
 CREATE TABLE Warehouse (
                            ID integer  NOT NULL,
-                           Adress varchar(200)  NOT NULL,
+                           Address varchar(200)  NOT NULL,
                            CONSTRAINT Warehouse_pk PRIMARY KEY (ID)
 );
 
