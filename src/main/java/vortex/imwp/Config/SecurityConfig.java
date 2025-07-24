@@ -21,7 +21,7 @@ public class SecurityConfig {
         http.formLogin(login -> login
                 .loginPage("/login")
                 .loginProcessingUrl("/login")
-                .defaultSuccessUrl("/", true)
+                .defaultSuccessUrl("/home", true)
                 .permitAll());
 
         return http.build();
