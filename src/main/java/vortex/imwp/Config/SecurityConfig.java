@@ -19,9 +19,9 @@ public class SecurityConfig {
                 .anyRequest().authenticated());
 
         http.formLogin(login -> login
-                .loginPage("/login")
-                .loginProcessingUrl("/login")
-                .defaultSuccessUrl("/home", true)
+                .loginPage("/api/auth/login")
+                .loginProcessingUrl("/api/auth/login")
+                .defaultSuccessUrl("/api/home", true)
                 .permitAll());
 
         return http.build();
