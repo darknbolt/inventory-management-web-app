@@ -1,7 +1,7 @@
 -- Warehouses
 INSERT INTO Warehouse (ID, Address) VALUES
-                                       (1, '123 Main St, Berlin'),
-                                       (2, '456 Market Ave, Munich');
+                                        (1, '123 Main St, Berlin'),
+                                        (2, '456 Market Ave, Munich');
 
 -- Jobs
 INSERT INTO Job (ID, Name, Description) VALUES
@@ -25,10 +25,10 @@ INSERT INTO Employee_Job (Employee_ID, Job_ID) VALUES
 
 -- Items
 INSERT INTO Item (ID, Name, Description, Price, Quantity) VALUES
-                                                             (1, 'Laptop', 'Gaming laptop with 16GB RAM', 1200.500, 5),
-                                                             (2, 'Mouse', 'Wireless ergonomic mouse', 25.999, 20),
-                                                             (3, 'Keyboard', 'Mechanical RGB keyboard', 75.250, 10),
-                                                             (4, 'Monitor', '27" 4K monitor', 299.990, 7);
+                                                              (1, 'Laptop', 'Gaming laptop with 16GB RAM', 1200.500, 5),
+                                                              (2, 'Mouse', 'Wireless ergonomic mouse', 25.999, 20),
+                                                              (3, 'Keyboard', 'Mechanical RGB keyboard', 75.250, 10),
+                                                              (4, 'Monitor', '27" 4K monitor', 299.990, 7);
 
 -- Warehouse Items
 INSERT INTO Warehouse_Items (Warehouse_ID, Item_ID) VALUES
