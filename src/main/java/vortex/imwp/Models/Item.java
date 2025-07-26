@@ -2,7 +2,9 @@ package vortex.imwp.Models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -17,7 +19,10 @@ public class Item {
     private Integer quantity;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    private Set<Warehouse> warehouses = new HashSet<>();
+    private List<WarehouseItem> warehouseItems = new ArrayList<>();
+
+    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
+    private List<SaleItem> saleItems = new ArrayList<>();
 
     public Item() {}
     public Item(String name, String description, double price, int quantity) {
@@ -37,7 +42,10 @@ public class Item {
     public void setPrice(double price) { this.price = price; }
     public int getQuantity() { return quantity; }
     public void setQuantity(int quantity) { this.quantity = quantity; }
-    public Set<Warehouse> getWarehouses() { return warehouses; }
-    public void setWarehouses(Set<Warehouse> warehouses) {this.warehouses = warehouses; }
-    public void addWarehouse(Warehouse warehouse) {this.warehouses.add(warehouse); }
+    public List<WarehouseItem> getWarehouses() { return warehouseItems; }
+    public void setWarehouses(List<WarehouseItem> warehouses) {this.warehouseItems = warehouses; }
+    public void addWarehouse(WarehouseItem warehouse) {this.warehouseItems.add(warehouse); }
+    public void addSaleItem(SaleItem saleItem) {this.saleItems.add(saleItem);}
+    public void removeSaleItem(SaleItem saleItem) {this.saleItems.remove(saleItem);}
+    public List<SaleItem> getSaleItems() { return saleItems; }
 }
