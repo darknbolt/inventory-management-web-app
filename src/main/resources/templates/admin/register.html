@@ -11,26 +11,36 @@
                     <h4>Register New User</h4>
                 </div>
                 <div class="card-body">
-                    <form th:action="@{/admin/register}" method="post">
+                    <form th:action="@{/auth/register}" method="post" th:object="${user}" onsubmit="return validatePasswords()">
                         <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                         <div class="mb-3">
                             <label for="username" class="form-label">Username</label>
-                            <input type="text" class="form-control" id="username" name="username" required />
+                            <input th:field="*{username}" type="text" class="form-control" id="username" name="username" required />
                         </div>
 
                         <div class="mb-3">
                             <label for="email" class="form-label">Email (optional)</label>
-                            <input type="email" class="form-control" id="email" name="email" />
+                            <input th:field="*{email}" type="email" class="form-control" id="email" name="email" />
                         </div>
 
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" required />
+                            <input th:field="*{password}" type="password" class="form-control" id="password" name="password" required />
                         </div>
 
                         <div class="mb-3">
                             <label for="confirmPassword" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required />
+                            <input th:field="*{confirmPassword}" type="password" class="form-control" id="confirmPassword" name="confirmPassword" required />
+                        </div>
+
+                        <p th:errors="*{email}" class="alert alert-danger mt-4"></p>
+
+                        <div th:if="${error}" class="alert alert-danger mt-4">
+                            <div th:text="${error}">Invalid Username, Password or Email</div>
+                        </div>
+
+                        <div id="passwordError" class="alert alert-danger d-none">
+                            Passwords do not match!
                         </div>
 
                         <button type="submit" class="btn btn-primary w-100">Create User</button>
@@ -39,5 +49,6 @@
             </div>
         </div>
     </div>
+    <script src="/js/validatePasswords.js"></script>
 </section>
 </html>
