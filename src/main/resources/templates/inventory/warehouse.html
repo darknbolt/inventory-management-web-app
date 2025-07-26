@@ -25,6 +25,7 @@
             <td>
               <a th:href="@{'/inventory/warehouses/edit/' + ${wh.id}}" class="btn btn-sm btn-outline-secondary">Edit</a>
               <form th:action="@{/inventory/warehouses/delete}" method="post" class="d-inline">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                 <input type="hidden" name="id" th:value="${wh.id}" />
                 <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
               </form>
