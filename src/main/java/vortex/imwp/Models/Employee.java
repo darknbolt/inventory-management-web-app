@@ -2,10 +2,7 @@ package vortex.imwp.Models;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "Employee")
@@ -25,14 +22,20 @@ public class Employee {
     private Long warehouseID;
     private Long bossID;
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    private Set<String> jobs = new HashSet<>();
+    @ManyToMany
+    @JoinTable(
+            name = "Employee_Job",
+            joinColumns = @JoinColumn(name = "Employee_ID"),
+            inverseJoinColumns = @JoinColumn(name = "Job_ID")
+    )
+    private List<Job> jobs = new ArrayList<>();
 
     @OneToMany(mappedBy = "salesman")
     private List<Sale> sales;
 
     public Employee() {}
-    public Employee(String username, String password, String name, String surname, String phone, String email, Date startDate, Date endDate, Long warehouseID, Set<String> jobs) {
+    public Employee(String username, String password, String name, String surname, String phone, String email, Date startDate, Date endDate, Long warehouseID) {}
+    public Employee(String username, String password, String name, String surname, String phone, String email, Date startDate, Date endDate, Long warehouseID, List<Job> jobs) {
         this.username = username;
         this.password = password;
         this.name = name;
@@ -44,7 +47,7 @@ public class Employee {
         this.warehouseID = warehouseID;
         this.jobs = jobs;
     }
-    public Employee(String username, String password, String name, String surname, String phone, String email, Date startDate, Date endDate, Long warehouseID, Long bossID, Set<String> jobs) {
+    public Employee(String username, String password, String name, String surname, String phone, String email, Date startDate, Date endDate, Long warehouseID, Long bossID, List<Job> jobs) {
         this.username = username;
         this.password = password;
         this.name = name;
@@ -70,7 +73,7 @@ public class Employee {
     public Date getEndDate() { return endDate; }
     public Long getWarehouseID() { return warehouseID; }
     public Long getBossID() { return bossID; }
-    public Set<String> getJobs() { return jobs; }
+    public List<Job> getJobs() { return jobs; }
 
     public void setUsername(String username) { this.username = username; }
     public void setPassword(String password) { this.password = password; }
@@ -83,6 +86,6 @@ public class Employee {
     public void setEndDate(Date endDate) { this.endDate = endDate; }
     public void setWarehouseID(Long warehouseID) { this.warehouseID = warehouseID; }
     public void setBossID(Long bossID) { this.bossID = bossID; }
-    public void addJob(String job) { jobs.add(job); }
-    public void removeJob(String job) { jobs.remove(job); }
+    public void addJob(Job job) { jobs.add(job); }
+    public void removeJob(Job job) { jobs.remove(job); }
 }

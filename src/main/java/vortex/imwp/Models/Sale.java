@@ -28,4 +28,10 @@ public class Sale {
         this.salesman = salesman;
     }
 
+    public Long getId() { return id; }
+    public Timestamp getSale_Time() { return sale_Time; }
+    public Employee getSalesman() { return salesman; }
+    public Set<SaleItem> getSaleItems() { return saleItems; }
+    public void setEmployee(Employee employee) { salesman = employee; }
+    public void setSale_Time(Timestamp sale_Time) { this.sale_Time = sale_Time; }
 }
