@@ -25,4 +25,12 @@ public class EmployeeDTOMapper {
                         .collect(Collectors.toSet())
         );
     }
+
+    public static Employee map(EmployeeDTO employeeDTO) {
+        return new Employee(
+                employeeDTO.getUsername(),
+                employeeDTO.getPassword(),
+                employeeDTO.getEmail()
+        );
+    }
 }

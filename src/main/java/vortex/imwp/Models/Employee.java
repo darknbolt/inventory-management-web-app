@@ -34,6 +34,11 @@ public class Employee {
     private List<Sale> sales;
 
     public Employee() {}
+    public Employee(String username, String password, String email) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+    }
     public Employee(String username, String password, String name, String surname, String phone, String email, Date startDate, Date endDate, Long warehouseID) {}
     public Employee(String username, String password, String name, String surname, String phone, String email, Date startDate, Date endDate, Long warehouseID, List<Job> jobs) {
         this.username = username;
