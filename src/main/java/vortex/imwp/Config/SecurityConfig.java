@@ -6,6 +6,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import vortex.imwp.Auth.CustomEmployeeDetailsService;
 
 @Configuration
 public class SecurityConfig {
@@ -15,12 +16,12 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(request -> request
-                .requestMatchers("/login", "/css/**", "/js/**", "/fonts/**", "/img/**").permitAll()
+                .requestMatchers("/auth/login","auth/register","/icon-cart.png", "/js/**").permitAll()
                 .anyRequest().authenticated());
 
         http.formLogin(login -> login
-                .loginPage("/api/auth/login")
-                .loginProcessingUrl("/api/auth/login")
+                .loginPage("/auth/login")
+                .loginProcessingUrl("/auth/login")
                 .defaultSuccessUrl("/api/home", true)
                 .permitAll());
 
