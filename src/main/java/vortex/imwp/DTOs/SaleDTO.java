@@ -19,4 +19,9 @@ public class SaleDTO {
         this.sale_Time = sale_Time;
         this.salesman = salesman;
     }
+
+    public Timestamp getSale_Time() { return sale_Time; }
+    public void setSale_Time(Timestamp sale_Time) { this.sale_Time = sale_Time; }
+    public EmployeeDTO getSalesman() { return salesman; }
+    public void setSalesman(EmployeeDTO salesman) { this.salesman = salesman; }
 }

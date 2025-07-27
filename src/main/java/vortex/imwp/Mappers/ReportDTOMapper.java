@@ -11,4 +11,14 @@ public class ReportDTOMapper {
                 report.getCreatedAtWarehouseID()
         );
     }
+
+    public static Report map(ReportDTO report){
+        return new Report(
+                report.getType(),
+                report.getEmployeeIdCreated(),
+                report.getCreatedAtWarehouseID()
+        );
+    }
+
+
 }

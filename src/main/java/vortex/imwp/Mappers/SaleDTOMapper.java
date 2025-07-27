@@ -10,4 +10,11 @@ public class SaleDTOMapper {
                 EmployeeDTOMapper.map(sale.getSalesman())
         );
     }
+
+    public static Sale map(SaleDTO sale){
+        return new Sale(
+                sale.getSale_Time(),
+                EmployeeDTOMapper.map(sale.getSalesman())
+        );
+    }
 }
