@@ -10,4 +10,11 @@ public class JobDTOMapper {
                 job.getDescription()
         );
     }
+
+    public static Job map(JobDTO job) {
+        return new Job(
+                job.getName(),
+                job.getDescription()
+        );
+    }
 }
